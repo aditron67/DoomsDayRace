@@ -451,7 +451,7 @@ class Generator:
             pygame.draw.rect(surf,GRAY,     (px2-13,py2+10,26,5),1)
             if self.active and self.progress<1.0:
                 secs=(1.0-self.progress)*5.0
-                eta=pygame.font.SysFont("consolas",10).render(f"{secs:.1f}s",True,YELLOW)
+                eta=pygame.font.SysFont("consolas",13).render(f"{secs:.1f}s",True,YELLOW)
                 surf.blit(eta,(px2-eta.get_width()//2,py2+17))
 
 
@@ -689,7 +689,7 @@ class KillerBase:
         draw_killer_sprite(surf,px2,py2,self.name,stunned=self.stunned>0,frame=self.frame)
         # Name tag
         if self.stunned>0:
-            stun_surf=pygame.font.SysFont("consolas",11,bold=True).render("STUNNED",True,YELLOW)
+            stun_surf=pygame.font.SysFont("consolas",14,bold=True).render("STUNNED",True,YELLOW)
             surf.blit(stun_surf,(px2-stun_surf.get_width()//2,py2-30))
 
 class KillerWraith(KillerBase):
@@ -772,7 +772,7 @@ class KillerStalker(KillerBase):
         pygame.draw.rect(es,(*self.eye_color,eye_a),(5,0,3,3))
         surf.blit(es,(px2-4,py2-4))
         if self.stunned>0:
-            stun_surf=pygame.font.SysFont("consolas",11,bold=True).render("STUNNED",True,YELLOW)
+            stun_surf=pygame.font.SysFont("consolas",14,bold=True).render("STUNNED",True,YELLOW)
             surf.blit(stun_surf,(px2-stun_surf.get_width()//2,py2-30))
 
 class KillerBlight(KillerBase):
@@ -1653,10 +1653,10 @@ async def main():
     screen=pygame.display.set_mode((SCREEN_W,SCREEN_H))
     pygame.display.set_caption("DOOMSDAY RACE")
     clock=pygame.time.Clock()
-    font=pygame.font.SysFont("consolas",15,bold=True)
-    small_font=pygame.font.SysFont("consolas",11)
-    big_font=pygame.font.SysFont("consolas",44,bold=True)
-    title_font=pygame.font.SysFont("consolas",54,bold=True)
+    font=pygame.font.SysFont("consolas",18,bold=True)
+    small_font=pygame.font.SysFont("consolas",14)
+    big_font=pygame.font.SysFont("consolas",48,bold=True)
+    title_font=pygame.font.SysFont("consolas",58,bold=True)
 
     state=STATE_MENU
     grid=gens=survs=player=killer=ep=KC=None
